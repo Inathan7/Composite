@@ -8,7 +8,7 @@ public class ExibidorGraficoSistemaDeArquivos {
 
 	public static void exibirItemJanelaSwing(ItemSistemaArquivos item) {
 		/*
-		 * TODO COMPOSITE.05
+		 * TODO COMPOSITE.05 //Feito
 		 * 
 		 * 1. Crie e exiba uma janela Swing.
 		 * 2. Liste na janela todo o conteudo. Use formatarEmStringConteudoItem(item) disponivel nesta classe.
@@ -16,7 +16,7 @@ public class ExibidorGraficoSistemaDeArquivos {
 		 *
 		 */
 		
-		//INATHAN ->   Ainda falta terminar
+		//PAULO -> terminei a tela
 		
 		JFrame view = new JFrame();
 		JTextArea area = new JTextArea();
@@ -28,6 +28,8 @@ public class ExibidorGraficoSistemaDeArquivos {
 		area.setBounds(10, 10, 700, 500);
 		area.setEditable(false);
 		
+		String conteudo = formatarEmStringConteudoDoItem(item, 3);
+		area.setText(conteudo);
 		
 		view.add(area);
 		view.setVisible(true);

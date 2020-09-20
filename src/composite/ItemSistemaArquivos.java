@@ -21,7 +21,11 @@ public abstract class ItemSistemaArquivos {
 	public abstract ItemSistemaArquivos buscar(String nome);
 	
 	public ItemSistemaArquivos(String nome) {
-		setNome(nome);
+		try {
+			setNome(nome);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
@@ -41,17 +45,23 @@ public abstract class ItemSistemaArquivos {
 	}
 	
 	//implementado aqui porque se aplica para conteineres e componentes simples.
-	public void setNome(String nome) {
+	public void setNome(String nome) throws Exception{
 		/**
-		 * TODO COMPOSITE.04
+		 * TODO COMPOSITE.04 //Feito
 		 * 1. Nao deixe o nome ser mudado caso haja qualquer outro item de mesmo nome da pastaPai em diante.
 		 * 2. Use this.pastaPai.buscar(nome) na implementacao
 		 * 3. Se o nome nao estiver em uso sete o nome, caso contrario, lance uma excecao com o motivo.
 		 */
+		if(this.pastaPai.buscar(nome)!=null){
+			throw new Exception("Este nome já está em uso");
+		}
 		this.nome = nome;
+		
+		//PAULO -> implementei a condição para que outros intens da pastaPai
+		//não tenha o mesmo nome.		
 	}
 	
-	/* TODO COMPOSITE.01
+	/* TODO COMPOSITE.01 Feito
 	 * 
 	 * 1. Este metodo deve ser implementado por um objeto conteiner e por qualquer componente simples. 
 	 * 2. Como dependera do tipo de objeto conteiner ou componente simples a implementacao e tambem queremos
@@ -59,6 +69,7 @@ public abstract class ItemSistemaArquivos {
 	 * implementacao padrao vazia (ou com lanÃ§amento de excecao por padrao aqui), ou devemos deixar esse metodo abstrato?  
 	 */
 	public abstract void deletar(); //INATHAN - Abstrato eu acho
+									//PAULO - também acho
 	
 	
 	/* TODO COMPOSITE.02

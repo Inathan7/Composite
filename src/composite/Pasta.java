@@ -70,23 +70,26 @@ public class Pasta extends ItemSistemaArquivos {
 	@Override
 	public ItemSistemaArquivos buscar(String nome) {
 		/**
-		 * TODO COMPOSITE.04
+		 * TODO COMPOSITE.04 //Feito
 		 * 
 		 * 1. Implemente uma busca desta pasta para outras internas a ela. 
 		 * 2. Use propopagacao da chamada de buscar() para itens filhos devolverem um item, caso se tenha o mesmo nome, ou, que se retorne null se nao 
 		 * houver item com o mesmo nome. 
 		 */
-		
-		//INATHAN ->
-		
-		//NÃO ENTENDI O QUE QUIS DIZER, PODEMOS VER JUNTOS.
+		for(ItemSistemaArquivos itemSistema: itens){
+			if(itemSistema.buscar(nome)!=null){
+				return itemSistema;
+			}
+		}
+
+		//PAULO -> Fiz a propagação da chamada buscar() nos seus filhos
 		
 		return null;
 	}
 	
 	public void add(ItemSistemaArquivos item) throws Exception {
 		/** 
-		 * TODO COMPOSITE.04
+		 * TODO COMPOSITE.04 //Feito
 		 * 1. Altere esta implementacao para lancar uma excecao em caso do mesmo item ja existir nesta pasta ou em pastas filhas.
 		 * 2. Use propagacao da chamada de buscar(nome) para itens filhos para checar se ha um item de mesmo nome.
 		 * 2. Caso esse item nao exista, pode prosseguir adicionado como indicado no codigo abaixo.
