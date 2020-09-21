@@ -16,7 +16,9 @@ public class Pasta extends ItemSistemaArquivos {
 	}
 	
 	public ItemSistemaArquivos[] getConteudo() {
-		return (ItemSistemaArquivos[]) this.itens.toArray();
+		//return (ItemSistemaArquivos[]) this.itens.toArray();
+		ItemSistemaArquivos[] novoArray = new ItemSistemaArquivos[itens.size()];
+		return novoArray;
 	}
 	
 	@Override
@@ -55,7 +57,10 @@ public class Pasta extends ItemSistemaArquivos {
 		
 		//INATHAN ->
 		
-		getPastaPai().remove(this);
+		if(getPastaPai() != null) {
+			getPastaPai().remove(this);
+		}
+		
 		try {
 			destino.add(this);
 		} catch (Exception e) {

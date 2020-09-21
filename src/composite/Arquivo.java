@@ -48,8 +48,8 @@ public class Arquivo extends ItemSistemaArquivos {
 		return (nome != null && nome.equals(getNome()))? this : null;
 	}
 	
-//	@Override
-//	public ItemSistemaArquivos[] getConteudo() {
+	@Override
+	public ItemSistemaArquivos[] getConteudo() {
 		/* TODO COMPOSITE.02
 		 * 
 		 * 1. Este metodo deve ser implementado somente por um objeto conteiner (aqui no arquivo ele nao faz nada). 
@@ -58,9 +58,9 @@ public class Arquivo extends ItemSistemaArquivos {
 		 * (ou com lanÃ§amento de excecao por padrao aqui), desobrigando essa implementacao aqui, 
 		 * ou, devemos deixar esse metodo ainda como sendo abstrato na superclasse, permanecendo essa implementacao padrao vazia aqui?  
 		 */
-//		return null;
-//	}
+		return null;
+	}
 	
-	//INATHAN - tirar essa implementação, acredito que seja mais interessante
+	//INATHAN - deixar essa implementação vazia, acredito que seja mais interessante
 
 }

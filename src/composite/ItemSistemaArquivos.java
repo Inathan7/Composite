@@ -79,9 +79,7 @@ public abstract class ItemSistemaArquivos {
 	 * que o acesso a este metodo seja transparente (sem acomplamentos instanceof e cast cliente). Devemos colocar uma 
 	 * implementacao padrao vazia (ou com lan√ßamento de excecao por padrao aqui) ou devemos deixar esse metodo abstrato?  
 	 */
-	public /*abstract*/ ItemSistemaArquivos[] getConteudo() { //INATHAN - Padr„o eu acho
-		return null;
-	}
+	public abstract ItemSistemaArquivos[] getConteudo(); //INATHAN - abstrato
 	
 	
 }

@@ -2,7 +2,7 @@ package main;
 
 import cliente.ExibidorGraficoSistemaDeArquivos;
 import composite.Arquivo;
-import composite.ItemSistemaArquivos;
+import composite.ArquivoCompactado;
 import composite.Pasta;
 
 public class Aplicacao {
@@ -115,8 +115,14 @@ public class Aplicacao {
 		 * 2. Instancie um ArquivoCompactado e adicione a pastaA nele.
 		 * 3. Confira se a execucao de apresentacao da pasta esta de acordo com o esperado.
 		 */
-		ItemSistemaArquivos arquivoCompactado = null; //instancie um ArquivoCompactado
+		Pasta arquivoCompactado = new ArquivoCompactado("ArquivoCompactado"); //instancie um ArquivoCompactado
 		//adicione a pastaA ao arquivoCompactado
+		try {
+			arquivoCompactado.add(pastaA);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ExibidorGraficoSistemaDeArquivos.exibirItemJanelaSwing(arquivoCompactado);
 		
 
