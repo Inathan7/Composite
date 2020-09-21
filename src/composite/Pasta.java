@@ -16,9 +16,12 @@ public class Pasta extends ItemSistemaArquivos {
 	}
 	
 	public ItemSistemaArquivos[] getConteudo() {
-		//return (ItemSistemaArquivos[]) this.itens.toArray();
-		ItemSistemaArquivos[] novoArray = new ItemSistemaArquivos[itens.size()];
-		return novoArray;
+		//PAULO -> utilizei o toArray(T[] t):T[] para retornar o array com os itens
+		
+		ItemSistemaArquivos[] array = new ItemSistemaArquivos[itens.size()];
+		ItemSistemaArquivos[] conteudoItens = itens.toArray(array);
+		
+		return conteudoItens;
 	}
 	
 	@Override
@@ -81,12 +84,15 @@ public class Pasta extends ItemSistemaArquivos {
 		 * 2. Use propopagacao da chamada de buscar() para itens filhos devolverem um item, caso se tenha o mesmo nome, ou, que se retorne null se nao 
 		 * houver item com o mesmo nome. 
 		 */
-		for(ItemSistemaArquivos itemSistema: itens){
-			if(itemSistema.buscar(nome)!=null){
-				return itemSistema;
+		//PAULO -> adicionei essa condição para que quando o método for chamado
+		//o itens já tenha sido instanciado
+		if(itens!=null){
+			for(ItemSistemaArquivos itemSistema: itens){
+				if(itemSistema.buscar(nome)!=null){
+					return itemSistema;
+				}
 			}
 		}
-
 		//PAULO -> Fiz a propagação da chamada buscar() nos seus filhos
 		
 		return null;

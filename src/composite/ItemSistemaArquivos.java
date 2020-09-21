@@ -52,7 +52,15 @@ public abstract class ItemSistemaArquivos {
 		 * 2. Use this.pastaPai.buscar(nome) na implementacao
 		 * 3. Se o nome nao estiver em uso sete o nome, caso contrario, lance uma excecao com o motivo.
 		 */
-		if(this.pastaPai.buscar(nome)!=null){
+		//PAULO -> criei essa condição caso a pasta ou arquivo ainda não tenha um pai
+		//evitando um NullPointException
+		
+		if(this.pastaPai==null){
+			if(buscar(nome)!=null){
+				throw new Exception("Este nome já está em uso");
+			}
+		}
+		else if(this.pastaPai.buscar(nome)!=null){
 			throw new Exception("Este nome já está em uso");
 		}
 		this.nome = nome;

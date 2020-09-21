@@ -11,7 +11,13 @@ public class Arquivo extends ItemSistemaArquivos {
 	
 	@Override
 	public String getNome() {
-		return super.getNome()+this.extensao;
+		//PAULO -> criei a condição para que a entenssao não tenha valor null
+		//Evitando nullPointException
+		
+		if(extensao!=null){
+			return super.getNome()+this.extensao;
+		}
+		return null;
 	}
 	
 	@Override
@@ -45,7 +51,10 @@ public class Arquivo extends ItemSistemaArquivos {
 
 	@Override
 	public ItemSistemaArquivos buscar(String nome) {
-		return (nome != null && nome.equals(getNome()))? this : null;
+		if(nome!=null && nome.equals(getNome())){
+			return this;
+		}
+		return null;
 	}
 	
 	@Override
@@ -61,6 +70,5 @@ public class Arquivo extends ItemSistemaArquivos {
 		return null;
 	}
 	
-	//INATHAN - deixar essa implementação vazia, acredito que seja mais interessante
 
 }
